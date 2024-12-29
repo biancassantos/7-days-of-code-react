@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import classNames from "classnames";
 
 function UserForm({ btnText }) {
   const { 
@@ -13,6 +14,16 @@ function UserForm({ btnText }) {
     //
   }
 
+  const emailClass = classNames({
+    "rounded border-[1px] border-gray-300 p-1": true,
+    "border-red-600": errors.email
+  })
+
+  const passwordClass = classNames({
+    "rounded border-[1px] border-gray-300 p-1": true,
+    "border-red-600": errors.password
+  })
+
   return (
     <form
     onSubmit={handleSubmit(onSubmit)}
@@ -21,14 +32,14 @@ function UserForm({ btnText }) {
       type="email" 
       {...register("email", {required: "Por favor, informe um e-mail."})}
       placeholder="email@exemplo.com"
-      className="rounded border-[1px] border-gray-300 p-1" />
+      className={emailClass} />
       {errors.email && <p className="text-xs text-red-600">{errors.email.message}</p>}
 
       <input 
       type="password" 
       {...register("password", {required: "Por favor, informe uma senha"})} 
       placeholder="Senha"
-      className="rounded border-[1px] border-gray-300 p-1" />
+      className={passwordClass} />
       {errors.password && <p className="text-xs text-red-600">{errors.password.message}</p>}
 
       <button 
