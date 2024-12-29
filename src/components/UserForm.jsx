@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-function SignUpForm() {
+function UserForm({ btnText }) {
   const { 
     register, 
     handleSubmit, 
@@ -35,10 +35,10 @@ function SignUpForm() {
       type="submit"
       disabled={isSubmitting}
       className="rounded bg-emerald-500 hover:bg-emerald-600 duration-300 p-1 text-white text-sm" >
-        Criar uma nova conta
+        {btnText}
       </button>
     </form>
   )
 }
 
-export default SignUpForm;
+export default UserForm;
