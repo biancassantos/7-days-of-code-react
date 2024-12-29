@@ -14,13 +14,13 @@ function UserForm({ btnText }) {
     //
   }
 
-  const emailClass = classNames({
-    "rounded border-[1px] border-gray-300 p-1": true,
+  const emailClass = classNames(
+    "rounded border-[1px] border-gray-300 p-1", {
     "border-red-600": errors.email
   })
 
-  const passwordClass = classNames({
-    "rounded border-[1px] border-gray-300 p-1": true,
+  const passwordClass = classNames(
+    "rounded border-[1px] border-gray-300 p-1",{
     "border-red-600": errors.password
   })
 
