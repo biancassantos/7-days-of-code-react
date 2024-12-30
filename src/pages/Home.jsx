@@ -1,9 +1,21 @@
 import App from "../layouts/App";
+import Header from "../components/Header";
+import NewPostInput from "../components/NewPostInput";
+import Post from "../components/Post";
 
 function Home() {
   return (
     <App>
-      <h1 className="text-xl text-sky-600">Home</h1>
+      <Header />
+      <main className="flex flex-col gap-4 items-center bg-slate-100 h-screen py-6 px-5">
+        <section className="w-[90vw] max-w-3xl">
+          <p className="mb-2 text-gray-600 text-sm">Alurite agora mesmo...</p>
+          <NewPostInput />
+        </section>
+        <section className="w-[90vw] max-w-3xl">
+          <Post />
+        </section>
+      </main>
     </App>
   )
 }
