@@ -1,7 +1,7 @@
 import App from "../layouts/App";
 import Header from "../components/Header";
 import NewPostInput from "../components/NewPostInput";
-import Post from "../components/Post";
+import Post from "../components/ui/Post";
 
 function Home() {
   return (

@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import Logo from "./Logo";
+import Logo from "./ui/Logo";
 import UserForm from "./UserForm";
 
 function UserAuthBody({ btnText, text, linkText, url }) {
