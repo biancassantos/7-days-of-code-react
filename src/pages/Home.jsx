@@ -1,5 +1,5 @@
 import App from "../layouts/App";
-import Header from "../components/Header";
+import Header from "../components/ui/Header";
 import NewPostInput from "../components/NewPostInput";
 import Post from "../components/ui/Post";
 

@@ -1,14 +1,21 @@
 import App from "../layouts/App";
-import UserAuthBody from "../components/UserAuthBody";
+import InputAreaContainer from "../components/InputAreaContainer";
+import UserForm from "../components/UserForm";
+import TextWithLink from "../components/ui/TextWithLink";
 
 function SignUp() {
   return (
     <App>
-      <UserAuthBody 
-      btnText="Criar uma nova conta"
-      text="Já possui uma conta? "
-      linkText="Acesse agora!"
-      url="/sign-in" />
+      <InputAreaContainer>
+        <UserForm 
+        btnText="Criar uma nova conta"
+        />
+        <TextWithLink 
+        text="Já possui uma conta? "
+        linkText="Acesse agora!"
+        url="/sign-in"
+        />
+      </InputAreaContainer>
     </App>
   )
 }
