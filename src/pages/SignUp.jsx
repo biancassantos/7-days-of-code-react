@@ -9,6 +9,7 @@ function SignUp() {
       <InputAreaContainer>
         <UserForm 
         btnText="Criar uma nova conta"
+        action="signup"
         />
         <TextWithLink 
         text="Já possui uma conta? "

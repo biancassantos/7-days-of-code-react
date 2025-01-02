@@ -8,7 +8,8 @@ function SignIn() {
     <App>
       <InputAreaContainer>
         <UserForm 
-        btnText="Acessar plataforma" 
+        btnText="Acessar plataforma"
+        action="login"
         />
         <TextWithLink
         text="Não possui uma conta? "
