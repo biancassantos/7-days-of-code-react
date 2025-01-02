@@ -1,11 +1,10 @@
-import App from "../layouts/App";
 import Header from "../components/ui/Header";
 import NewPostInput from "../components/NewPostInput";
 import Post from "../components/ui/Post";
 
 function Home() {
   return (
-    <App>
+    <>
       <Header />
       <main className="flex flex-col gap-4 items-center bg-slate-100 h-screen py-6 px-5">
         <section className="w-[90vw] max-w-3xl">
@@ -16,7 +15,7 @@ function Home() {
           <Post />
         </section>
       </main>
-    </App>
+    </>
   )
 }
 

@@ -1,11 +1,10 @@
-import App from "../layouts/App";
 import InputAreaContainer from "../components/InputAreaContainer";
 import UserForm from "../components/UserForm";
 import TextWithLink from "../components/ui/TextWithLink";
 
 function SignIn() {
   return (
-    <App>
+    <>
       <InputAreaContainer>
         <UserForm 
         btnText="Acessar plataforma"
@@ -17,7 +16,7 @@ function SignIn() {
         url="/sign-up" 
         />
       </InputAreaContainer>
-    </App>
+    </>
   )
 }
 

@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router";
-import Home from "./Home";
-import SignUp from "./SignUp";
-import SignIn from "./SignIn";
-import NotFound from "./NotFound";
+import Home from "./pages/Home";
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
+import NotFound from "./pages/NotFound";
 
-export function Pages() {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -16,3 +16,5 @@ export function Pages() {
     </BrowserRouter>
   )
 }
+
+export default App;

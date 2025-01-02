@@ -1,11 +1,10 @@
-import App from "../layouts/App";
 import InputAreaContainer from "../components/InputAreaContainer";
 import UserForm from "../components/UserForm";
 import TextWithLink from "../components/ui/TextWithLink";
 
 function SignUp() {
   return (
-    <App>
+    <>
       <InputAreaContainer>
         <UserForm 
         btnText="Criar uma nova conta"
@@ -17,7 +16,7 @@ function SignUp() {
         url="/sign-in"
         />
       </InputAreaContainer>
-    </App>
+    </>
   )
 }
 
