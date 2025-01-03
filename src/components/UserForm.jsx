@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
-import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
 function UserForm({ btnText, action }) {
@@ -30,7 +29,6 @@ function UserForm({ btnText, action }) {
       } else if (err.message.includes("invalid-credential")) {
         setFirebaseErr("Este usuário é inválido ou não existe");
       }
-      console.error(err);
     }
   }
 
