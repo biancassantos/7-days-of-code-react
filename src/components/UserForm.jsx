@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
-import { auth } from "../config/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
 
 function UserForm({ btnText, action }) {
   const { 
@@ -14,6 +14,8 @@ function UserForm({ btnText, action }) {
       isSubmitting
     }} = useForm();
 
+  const { userAuth } = useContext(AuthContext);
+
   const [firebaseErr, setFirebaseErr] = useState(null);
 
   const email = watch("email");
@@ -21,11 +23,7 @@ function UserForm({ btnText, action }) {
 
   async function onSubmit() {
     try {
-      if (action === "signup") {
-        await createUserWithEmailAndPassword(auth, email, password);
-      } else if (action === "login") {
-        await signInWithEmailAndPassword(auth, email, password);
-      }
+      await userAuth(action, email, password);
     } catch (err) {
       if (err.message.includes("email-already-in-use")) {
         setFirebaseErr("Este e-mail já está em uso");
