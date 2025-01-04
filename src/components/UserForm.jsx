@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import classNames from "classnames";
 import { AuthContext } from "../contexts/AuthContext";
+import { useNavigate } from "react-router";
 
 function UserForm({ btnText, action }) {
   const { 
@@ -14,6 +15,7 @@ function UserForm({ btnText, action }) {
     }} = useForm();
 
   const { userAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [firebaseErr, setFirebaseErr] = useState(null);
 
@@ -23,6 +25,7 @@ function UserForm({ btnText, action }) {
   async function onSubmit() {
     try {
       await userAuth(action, email, password);
+      navigate("/");
     } catch (err) {
       if (err.message.includes("email-already-in-use")) {
         setFirebaseErr("Este e-mail já está em uso");

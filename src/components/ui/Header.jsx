@@ -3,11 +3,15 @@ import { auth } from "../../config/firebase";
 import { signOut } from "firebase/auth";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router";
 
 function Header() {
+  const navigate = useNavigate();
+
   const logout = async () => {
     try {
       await signOut(auth);
+      navigate("/sign-in");
     } catch (err) {
       console.error(err);
     }
