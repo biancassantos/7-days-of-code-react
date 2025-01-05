@@ -1,29 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import Post from "./ui/Post"
-import { getDocs } from "firebase/firestore";
 import { AuthContext } from "../contexts/AuthContext";
+import { PostsContext } from "../contexts/PostsContext";
+import Spinner from "./ui/Spinner";
 
 function RenderPosts() {
-  const [posts, setPosts] = useState([]);
-
-  const { postsCollectionRef } = useContext(AuthContext);
-
-  const getPosts = async () => {
-    try {
-      const data = await getDocs(postsCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(), 
-        id: doc.id
-      }));
-      setPosts(...posts, filteredData);
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  const { getPosts, posts } = useContext(PostsContext);
+  const { isPending } = useContext(AuthContext);
 
   useEffect(() => {
     getPosts();
   }, [])
+
+  if (isPending) return <Spinner />
 
   return (
     <>
