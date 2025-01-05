@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "fire
 
 export function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
+  const [isPending, setIsPending] = useState(true);
 
   const userAuth = (action, email, password) => {
     if (action === "signup") {
@@ -15,13 +16,16 @@ export function AuthContextProvider({ children }) {
   }
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => setCurrentUser(user));
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      user ? setCurrentUser(user) : setCurrentUser(null);
+      setIsPending(false);
+    });
 
-    return unsubscribe;
+    return () => unsubscribe();
   }, [])
 
   return (
-    <AuthContext.Provider value={{currentUser, userAuth}}>
+    <AuthContext.Provider value={{currentUser, userAuth, isPending}}>
       {children}
     </AuthContext.Provider>
   )
