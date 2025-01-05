@@ -1,6 +1,6 @@
 import Header from "../components/ui/Header";
 import NewPostInput from "../components/NewPostInput";
-import Post from "../components/ui/Post";
+import RenderPosts from "../components/RenderPosts";
 
 function Home() {
   return (
@@ -11,8 +11,8 @@ function Home() {
           <p className="mb-2 text-gray-600 text-sm">Alurite agora mesmo...</p>
           <NewPostInput />
         </section>
-        <section className="w-[90vw] max-w-3xl">
-          <Post />
+        <section className="flex flex-col gap-5 w-[90vw] max-w-3xl">
+          <RenderPosts />
         </section>
       </main>
     </>

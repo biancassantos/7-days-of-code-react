@@ -1,11 +1,14 @@
 import { AuthContext } from "./AuthContext";
 import { useState, useEffect } from "react";
-import { auth } from "../config/firebase";
+import { auth, db } from "../config/firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { collection } from "firebase/firestore";
 
 export function AuthContextProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [isPending, setIsPending] = useState(true);
+
+  const postsCollectionRef = collection(db, "posts");
 
   const userAuth = (action, email, password) => {
     if (action === "signup") {
@@ -24,8 +27,15 @@ export function AuthContextProvider({ children }) {
     return () => unsubscribe();
   }, [])
 
+  const value = {
+    currentUser,
+    userAuth,
+    isPending,
+    postsCollectionRef
+  }
+
   return (
-    <AuthContext.Provider value={{currentUser, userAuth, isPending}}>
+    <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
   )
