@@ -8,7 +8,7 @@ import Spinner from "./ui/Spinner";
 function RenderPosts() {
   const [posts, setPosts] = useState([]);
 
-  const { isPending } = useContext(AuthContext);
+  const { isPending, currentUser } = useContext(AuthContext);
   const { postsCollectionRef } = useContext(PostsContext);
 
   useEffect(() => {
@@ -30,11 +30,14 @@ function RenderPosts() {
   return (
     <>
       {posts?.map(post => {
+        let isAuthor = post.author === currentUser?.email;
         return (<Post  
         key={post.id}
+        id={post.id}
         body={post.body}
         date={post.date}
         author={post.author}
+        isAuthor={isAuthor}
         />)
       })}
     </>
