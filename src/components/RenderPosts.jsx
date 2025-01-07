@@ -1,16 +1,29 @@
-import { useEffect, useContext } from "react";
-import Post from "./ui/Post"
+import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { PostsContext } from "../contexts/PostsContext";
+import { onSnapshot } from "firebase/firestore";
+import Post from "./ui/Post"
 import Spinner from "./ui/Spinner";
 
 function RenderPosts() {
-  const { getPosts, posts } = useContext(PostsContext);
+  const [posts, setPosts] = useState([]);
+
   const { isPending } = useContext(AuthContext);
+  const { postsCollectionRef } = useContext(PostsContext);
 
   useEffect(() => {
-    getPosts();
-  }, [])
+    const unsub = onSnapshot(postsCollectionRef, (snapshot) => {
+      let list = [];
+      snapshot.docs.forEach(doc => {
+        list.push({...doc.data(), id: doc.id});
+      });
+      setPosts(list);
+    }, (error) => {
+      console.error(error)
+    });
+
+    return () => unsub();
+  }, [postsCollectionRef])
 
   if (isPending) return <Spinner />
 
