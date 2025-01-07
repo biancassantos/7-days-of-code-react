@@ -20,13 +20,13 @@ function Header() {
   const { currentUser } = useContext(AuthContext);
 
   return (
-    <header className="flex justify-between items-center py-3 px-5 bg-white shadow-sm">
+    <header className="flex justify-between items-start gap-4 py-3 px-5 bg-white shadow-sm md:items-center">
       <Logo />
-      <div className="flex justify-between items-center gap-2">
-        <p className="text-gray-500">{currentUser?.email}</p>
+      <div className="flex flex-col justify-between items-end gap-2 md:flex-row md:items-center">
+        <p className="text-gray-500 text-sm text-end order-2 md:order-1">{currentUser?.email}</p>
         <button 
         onClick={logout}
-        className="bg-red-500 hover:bg-red-600 duration-300 text-white rounded py-1 px-2">
+        className="border-[1px] border-sky-500 text-sky-500 hover:bg-sky-500 hover:text-white duration-300 rounded py-1 px-3 order-1 md:order-2">
           Sair
         </button>
       </div>

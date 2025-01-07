@@ -6,7 +6,7 @@ function Post({ body, date, author, isAuthor, id }) {
       <p className="text-gray-500 text-wrap">{body}</p>
       <section className="flex flex-col sm:flex-row justify-between gap-1">
         <p className="text-sky-500 text-sm">{author}</p>
-        <span className="text-gray-500 text-sm">{date}</span>
+        <span className="text-gray-500 text-xs">{date}</span>
       </section>
       {isAuthor && <DeleteButton id={id} />}
     </section>

@@ -10,7 +10,7 @@ function DeleteButton({ id }) {
   return (
     <button
     onClick={() => deletePost(id)}
-    className="self-end">
+    className="self-end text-sm text-gray-400 border-[1px] border-gray-400 py-1 px-2 rounded hover:bg-gray-400 hover:text-white duration-300">
       Apagar
     </button>
   )

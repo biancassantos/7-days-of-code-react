@@ -46,30 +46,40 @@ function UserForm({ btnText, action }) {
   })
 
   const btnClass = classNames(
-    "rounded bg-emerald-500 hover:bg-emerald-600 duration-300 p-1 text-white text-sm",{
+    "rounded bg-sky-500 hover:bg-sky-600 duration-300 p-1 text-white text-sm",{
     "bg-emerald-300": isSubmitting
   })
 
   return (
     <form
     onSubmit={handleSubmit(onSubmit)}
-    className="flex flex-col gap-[8px] w-full">
+    className="flex flex-col gap-[10px] w-full">
+      <label 
+      htmlFor="email"
+      className="text-xs text-gray-500">
+        E-mail
+      </label>
       <input 
       type="email" 
-      {...register("email", {required: "Por favor, informe um e-mail."})}
-      placeholder="email@exemplo.com"
+      id="email"
+      {...register("email", {required: "Por favor, informe um e-mail"})}
       className={emailClass} />
       {errors.email && <p className="text-xs text-red-600">{errors.email.message}</p>}
 
+      <label 
+      htmlFor="password"
+      className="text-xs text-gray-500">
+        Senha
+      </label>
       <input 
       type="password" 
+      id="password"
       {...register("password", {
         required: "Por favor, informe uma senha", 
         minLength: {
           value: 8, 
           message: "A senha precisa ter no mínimo 8 caracteres"
         }})}
-      placeholder="Senha"
       className={passwordClass} />
       {errors.password && <p className="text-xs text-red-600">{errors.password.message}</p>}
       
