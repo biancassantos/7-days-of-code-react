@@ -2,7 +2,7 @@
 
 ## 📄 Sobre
 <p>Olá, esse projeto é a resolução do desafio #7DaysOfCode em React, da plataforma Alura.</p>
-<p>A proposta do desafio era criar uma versão simplificada do antigo Twitter (agora X), que consome e envia dados para uma API externa utilizando o Firebase, contando com autenticação de usuário e rotas privadas.</p>
+<p>A proposta do desafio é criar uma versão simplificada do antigo Twitter (agora X), que consome e envia dados para uma API externa utilizando o Firebase, contando com autenticação de usuário e rotas privadas.</p>
 
 ### Funcionalidades:
 - Criar uma nova conta
