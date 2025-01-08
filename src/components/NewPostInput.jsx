@@ -47,8 +47,8 @@ function NewPostInput() {
   );
 
   const btnClass = classNames(
-    "bg-sky-500 text-white rounded py-1 px-2 hover:bg-sky-600 duration-300", {
-      "bg-sky-300 hover:bg-sky-300": isSubmitting || body?.length === 0 || !body
+    "bg-sky-300 text-white rounded py-1 px-2 duration-300", {
+      "bg-sky-500 hover:bg-sky-600": !!body,
     }
   );
 
@@ -67,7 +67,7 @@ function NewPostInput() {
           `Você ainda pode digitar ${body ? 255 - body.length : 255} caracteres`}
         </span>
         <button 
-        disabled={isSubmitting || body?.length === 0 || !body}
+        disabled={isSubmitting || !body}
         className={btnClass}>
           Aluritar
         </button>
