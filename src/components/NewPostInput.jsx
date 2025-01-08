@@ -37,21 +37,20 @@ function NewPostInput() {
   }
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
-      reset();
-    }
+    if (isSubmitSuccessful) reset();
   }, [isSubmitSuccessful, reset])
 
   const spanClass = classNames(
     "text-emerald-600 text-sm", {
       "text-red-600": body?.length === 255
-    });
+    }
+  );
 
   const btnClass = classNames(
     "bg-sky-500 text-white rounded py-1 px-2 hover:bg-sky-600 duration-300", {
       "bg-sky-300 hover:bg-sky-300": isSubmitting || body?.length === 0 || !body
     }
-  )
+  );
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

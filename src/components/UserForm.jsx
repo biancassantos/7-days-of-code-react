@@ -38,17 +38,20 @@ function UserForm({ btnText, action }) {
   const emailClass = classNames(
     "rounded border-[1px] border-gray-300 p-1", {
     "border-red-600": errors.email
-  })
+    }
+  );
 
   const passwordClass = classNames(
-    "rounded border-[1px] border-gray-300 p-1",{
+    "rounded border-[1px] border-gray-300 p-1", {
     "border-red-600": errors.password
-  })
+    }
+  );
 
   const btnClass = classNames(
-    "rounded bg-sky-500 hover:bg-sky-600 duration-300 p-1 text-white text-sm",{
-    "bg-emerald-300": isSubmitting
-  })
+    "rounded bg-sky-500 hover:bg-sky-600 duration-300 p-1 text-white text-sm", {
+    "bg-sky-300": isSubmitting
+    }
+  );
 
   return (
     <form
