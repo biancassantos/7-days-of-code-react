@@ -9,12 +9,13 @@ import Spinner from "../components/ui/Spinner";
 function SignUp() {
   const { currentUser, isPending } = useContext(AuthContext);
 
+  // aguarda a autenticação do usuário
   if (isPending) return <Spinner />  
 
   return (
     <> 
       {currentUser ? 
-      <Navigate to="/" /> :
+      <Navigate to="/" /> : // não permite acessar a página de cadastro se o usuário já estiver logado
       <InputAreaContainer>
         <UserForm 
         btnText="Criar uma nova conta"

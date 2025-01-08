@@ -11,6 +11,7 @@ function RenderPosts() {
   const { isPending, currentUser } = useContext(AuthContext);
   const { postsCollectionRef } = useContext(PostsContext);
 
+  // atualiza os posts em tempo real
   useEffect(() => {
     const unsub = onSnapshot(postsCollectionRef, (snapshot) => {
       let list = [];
@@ -25,6 +26,7 @@ function RenderPosts() {
     return () => unsub();
   }, [postsCollectionRef])
 
+  // aguarda a autenticação do usuário
   if (isPending) return <Spinner />
 
   return (
