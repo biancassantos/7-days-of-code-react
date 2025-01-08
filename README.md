@@ -24,6 +24,8 @@
 - React (React Router, React Hook Form, Context API)
 - HTML
 - Tailwindcss
+
+### Back-end
 - Firebase (Authentication, Firestore Database, Hosting)
 
 </br>
