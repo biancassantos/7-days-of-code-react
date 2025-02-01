@@ -21,8 +21,9 @@
 
 ## 🔎 Especificações
 ### Tecnologias:
-- React (React Router, React Hook Form, Context API)
 - HTML
+- JavaScript
+- React (React Router, React Hook Form, Context API)
 - Tailwindcss
 
 ### Back-end
