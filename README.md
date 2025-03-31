@@ -21,12 +21,20 @@
 
 ## 🔎 Especificações
 ### Tecnologias:
-- HTML
+- React
 - JavaScript
-- React (React Router, React Hook Form, Context API)
 - Tailwindcss
+- JSX
+
+### Dependências:
+- React Router
+- React Hook Form
+- classnames
+
 
 ### Back-end
-- Firebase (Authentication, Firestore Database, Hosting)
+- Firebase Authentication
+- Firestore Database
+- Firebase Hosting
 
 </br>
